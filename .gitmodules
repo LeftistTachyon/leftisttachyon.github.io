@@ -1,0 +1,3 @@
+[submodule "the-yellow-wallpaper"]
+	path = the-yellow-wallpaper
+	url = https://github.com/LeftistTachyon/the-yellow-wallpaper.git
