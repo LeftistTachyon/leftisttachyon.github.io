@@ -1,11 +1,11 @@
 
 /**
  * @roxi/routify 2.18.8
- * File generated Thu Sep 08 2022 17:37:01 GMT-0500 (Central Daylight Time)
+ * File generated Thu Sep 08 2022 19:39:14 GMT-0500 (Central Daylight Time)
  */
 
 export const __version = "2.18.8"
-export const __timestamp = "2022-09-08T22:37:01.016Z"
+export const __timestamp = "2022-09-09T00:39:14.946Z"
 
 //buildRoutes
 import { buildClientTree } from "@roxi/routify/runtime/buildRoutes"
@@ -48,6 +48,31 @@ export const _tree = {
       "path": "/flicktest",
       "id": "_flicktest",
       "component": () => import('../src/pages/flicktest.svelte').then(m => m.default)
+    },
+    {
+      "isFile": true,
+      "isDir": false,
+      "file": "flicktest_old.svelte",
+      "filepath": "/flicktest_old.svelte",
+      "name": "flicktest_old",
+      "ext": "svelte",
+      "badExt": false,
+      "absolutePath": "C:/Users/Tachi/Documents/leftisttachyon.github.io/src/pages/flicktest_old.svelte",
+      "importPath": "../src/pages/flicktest_old.svelte",
+      "isLayout": false,
+      "isReset": false,
+      "isIndex": false,
+      "isFallback": false,
+      "isPage": true,
+      "ownMeta": {},
+      "meta": {
+        "recursive": true,
+        "preload": false,
+        "prerender": true
+      },
+      "path": "/flicktest_old",
+      "id": "_flicktest_old",
+      "component": () => import('../src/pages/flicktest_old.svelte').then(m => m.default)
     },
     {
       "isFile": true,

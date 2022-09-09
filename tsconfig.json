@@ -16,7 +16,6 @@
     "checkJs": true,
     "isolatedModules": true,
     "paths": {
-      "@routify/*": [".routify/*"],
       "@lib/*": ["src/lib/*"]
     }
   },
