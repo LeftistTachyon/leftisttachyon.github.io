@@ -17,10 +17,14 @@
     stdStdDev = 0;
 
   // to start test
-  function startStd() {
+  function stdTest() {
     stdStart.disabled = true;
     stdToGo = 5;
 
+    startStd();
+  }
+
+  function startStd() {
     // reset test
     stdArea.style.backgroundColor = "darkblue";
 
@@ -39,7 +43,7 @@
       stdSum += time;
       stdSum2 += time * time;
       stdLastFlashed = null;
-      stdAttempts++;
+      stdAttempts = stdAttempts + 1;
 
       // update readouts
       let stdAvg = stdSum / stdAttempts;
@@ -49,8 +53,8 @@
       stdStdDevReadout.innerHTML = String(Math.round(stdStdDev));
       updateDiffReadout();
 
-      if (--stdToGo) {
-        console.log(stdToGo + " to go!");
+      stdToGo = stdToGo - 1;
+      if (stdToGo) {
         startStd();
       } else {
         stdArea.style.backgroundColor = "transparent";
@@ -68,11 +72,15 @@
     flickSum2 = 0,
     flickStdDev = 0;
 
-  // to start test
-  function startFlick() {
+  function flickTest() {
     flickStart.disabled = true;
     flickToGo = 5;
 
+    startFlick();
+  }
+
+  // to start test
+  function startFlick() {
     // reset test
     flickArea.style.backgroundColor = "darkblue";
 
@@ -91,7 +99,7 @@
       flickSum += time;
       flickSum2 += time * time;
       flickLastFlashed = null;
-      flickAttempts++;
+      flickAttempts = flickAttempts + 1;
 
       // update readouts
       let flickAvg = flickSum / flickAttempts;
@@ -101,7 +109,8 @@
       flickStdDevReadout.innerHTML = String(Math.round(flickStdDev));
       updateDiffReadout();
 
-      if (--flickToGo) {
+      flickToGo = flickToGo - 1;
+      if (flickToGo) {
         startFlick();
       } else {
         flickArea.style.backgroundColor = "transparent";
@@ -160,10 +169,10 @@
           start.
         </p>
       </div>
-      <button class="start-button" on:click={startStd} bind:this={stdStart}>
+      <button class="start-button" on:click={stdTest} bind:this={stdStart}>
         Start
       </button>
-      <button class="start-button" bind:this={flickStart} on:click={startFlick}
+      <button class="start-button" bind:this={flickStart} on:click={flickTest}
         >Start</button
       >
       <div class="area" bind:this={stdArea} on:click={stdReaction} />
