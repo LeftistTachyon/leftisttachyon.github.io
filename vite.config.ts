@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import { minify } from "html-minifier";
@@ -5,7 +6,7 @@ import { minify } from "html-minifier";
 const minifyHtml = () => {
   return {
     name: "html-transform",
-    transformIndexHtml(html) {
+    transformIndexHtml(html: string) {
       return minify(html, {
         collapseWhitespace: true,
       });
@@ -24,6 +25,11 @@ export default defineConfig(({ mode }) => {
     plugins: [svelte(), isProduction && minifyHtml()],
     build: {
       minify: isProduction,
+    },
+    resolve: {
+      alias: {
+        "@lib": resolve(__dirname, "./src/lib"),
+      },
     },
   };
 });
