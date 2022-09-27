@@ -1,5 +1,7 @@
 <script lang="ts">
-  export let top = 0;
+  export let top = 0,
+    scroll = true;
+
   let inner: HTMLDivElement, outer: HTMLDivElement;
   let ratio = 0;
   function handleScroll() {
@@ -7,15 +9,14 @@
       scrollableWidth = inner.scrollWidth - inner.clientWidth;
 
     ratio = inner.offsetTop / scrollableHeight;
-    console.log({ ratio });
+    // console.log({ ratio });
 
-    inner.scrollLeft = scrollableWidth * ratio;
+    if (scroll) inner.scrollLeft = scrollableWidth * ratio;
   }
 </script>
 
 <svelte:window on:scroll={handleScroll} />
 
-<p>ratio: {ratio}</p>
 <div id="outer" bind:this={outer}>
   <div id="inner" bind:this={inner} style="top:{top}px">
     <slot progress={ratio} />

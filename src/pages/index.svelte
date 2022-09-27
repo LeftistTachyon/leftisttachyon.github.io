@@ -7,8 +7,8 @@
   <h1>Welcome to my webpage!</h1>
 
   <div class="extra" />
-  <Outer top={100}>
-    <div class="hstack" let:progress={ratio}>
+  <Outer top={100} let:progress={ratio}>
+    <div class="hstack">
       <div class="black">ratio: {ratio}</div>
       <div class="white">ratio: {ratio}</div>
       <div class="black">ratio: {ratio}</div>
