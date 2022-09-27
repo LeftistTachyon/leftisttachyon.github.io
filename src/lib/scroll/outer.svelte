@@ -1,6 +1,7 @@
 <script lang="ts">
   export let top = 0,
-    scroll = true;
+    scroll = true,
+    height = "200vh";
 
   let inner: HTMLDivElement, outer: HTMLDivElement;
   let ratio = 0;
@@ -17,7 +18,7 @@
 
 <svelte:window on:scroll={handleScroll} />
 
-<div id="outer" bind:this={outer}>
+<div id="outer" bind:this={outer} style="height:{height}">
   <div id="inner" bind:this={inner} style="top:{top}px">
     <slot progress={ratio} />
   </div>
@@ -25,14 +26,11 @@
 
 <style>
   #inner {
-    min-height: 50vh;
-    background: yellow;
+    min-height: 100vh;
     position: sticky;
     overflow-x: hidden;
   }
   #outer {
-    border: 1px solid red;
-    min-height: 150vh;
     position: relative;
   }
 </style>

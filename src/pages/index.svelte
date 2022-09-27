@@ -7,7 +7,7 @@
   <h1>Welcome to my webpage!</h1>
 
   <div class="extra" />
-  <Outer top={100} let:progress={ratio}>
+  <Outer let:progress={ratio}>
     <div class="hstack">
       <div class="black">ratio: {ratio}</div>
       <div class="white">ratio: {ratio}</div>
@@ -29,12 +29,12 @@
     background: black;
     color: white;
     min-width: 50vw;
-    min-height: 100px;
+    height: 100vh;
   }
   .white {
     background: white;
     color: black;
     min-width: 50vw;
-    min-height: 100px;
+    height: 100vh;
   }
 </style>
