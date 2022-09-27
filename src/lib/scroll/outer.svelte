@@ -2,7 +2,7 @@
   export let top = 0,
     scroll = true,
     height = "200vh",
-    width = "100vw";
+    width = "100%";
 
   let inner: HTMLDivElement, outer: HTMLDivElement;
   export let progress = 0;
@@ -17,7 +17,7 @@
   }
 </script>
 
-<svelte:window on:scroll={handleScroll} />
+<svelte:window on:scroll={handleScroll} on:resize={handleScroll} />
 
 <div id="outer" bind:this={outer} style="height:{height};width:{width}">
   <div id="inner" bind:this={inner} style="top:{top}px">
@@ -32,6 +32,5 @@
   }
   #outer {
     position: relative;
-    overflow-x: visible;
   }
 </style>
