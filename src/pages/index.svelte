@@ -1,20 +1,38 @@
 <script lang="ts">
   import Outer from "@lib/scroll/outer.svelte";
-  console.log("Jello");
+  import { beforeUpdate } from "svelte";
+
+  let sidebar: HTMLDivElement,
+    progress = 0;
+  let top = 0;
+
+  beforeUpdate(() => {
+    top = sidebar
+      ? sidebar.clientWidth * 0.2 +
+        progress * (sidebar.clientHeight - sidebar.clientWidth)
+      : 0;
+  });
 </script>
 
 <main>
   <h1>Welcome to my webpage!</h1>
 
   <div class="extra" />
-  <Outer let:progress={ratio}>
-    <div class="hstack">
-      <div class="black">ratio: {ratio}</div>
-      <div class="white">ratio: {ratio}</div>
-      <div class="black">ratio: {ratio}</div>
-      <div class="white">ratio: {ratio}</div>
-    </div>
-  </Outer>
+  <div class="hstack dual-outer">
+    <Outer let:progress width="90%">
+      <div class="hstack">
+        <div class="black">progress: {progress}</div>
+        <div class="white">progress: {progress}</div>
+        <div class="black">progress: {progress}</div>
+        <div class="white">progress: {progress}</div>
+      </div>
+    </Outer>
+    <Outer scroll={false} bind:progress width="10%">
+      <div class="yellow" bind:this={sidebar}>
+        <div class="square" style="rotate:{720 * progress}deg;top:{top}px" />
+      </div>
+    </Outer>
+  </div>
   <div class="extra" />
 </main>
 
@@ -30,11 +48,30 @@
     color: white;
     min-width: 50vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .white {
     background: white;
     color: black;
     min-width: 50vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .yellow {
+    background: yellow;
+    color: black;
+    width: 10vw;
+    height: 100vh;
+  }
+  .square {
+    background: red;
+    width: 60%;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 20%;
   }
 </style>
