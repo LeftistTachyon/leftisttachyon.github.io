@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Outer from "@lib/scroll/outer.svelte";
+  import ScrollContainer from "@lib/scroll/scroll-container.svelte";
   import { beforeUpdate } from "svelte";
 
   let sidebar: HTMLDivElement,
@@ -19,19 +19,19 @@
 
   <div class="extra" />
   <div class="hstack dual-outer">
-    <Outer let:progress width="90%">
+    <ScrollContainer let:progress width="90%">
       <div class="hstack">
         <div class="black">progress: {progress}</div>
         <div class="white">progress: {progress}</div>
         <div class="black">progress: {progress}</div>
         <div class="white">progress: {progress}</div>
       </div>
-    </Outer>
-    <Outer scroll={false} bind:progress width="10%">
+    </ScrollContainer>
+    <ScrollContainer scroll={false} bind:progress width="10%">
       <div class="yellow" bind:this={sidebar}>
         <div class="square" style="rotate:{720 * progress}deg;top:{top}px" />
       </div>
-    </Outer>
+    </ScrollContainer>
   </div>
   <div class="extra" />
 </main>
