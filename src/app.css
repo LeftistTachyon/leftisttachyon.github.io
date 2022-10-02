@@ -9,8 +9,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --theme-color: #d00c0c;
+  --bg-theme-color: #f0b6b6;
+  --accent-color: #00008B;
+  --bg-accent-color: #cccce7;
 }
 
 body {
   margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
